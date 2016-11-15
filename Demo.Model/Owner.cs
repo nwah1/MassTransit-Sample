@@ -1,4 +1,4 @@
-﻿namespace Pangea.Messaging
+﻿namespace Demo.Model
 {
     public class Owner
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{68B4FE5B-A61D-4671-81F9-811B0EBC488F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Pangea.Messaging</RootNamespace>
-    <AssemblyName>Pangea.Messaging</AssemblyName>
+    <RootNamespace>Demo.Model</RootNamespace>
+    <AssemblyName>Demo.Model</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

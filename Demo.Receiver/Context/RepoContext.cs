@@ -1,5 +1,5 @@
 ﻿using System.Data.Entity;
-using Pangea.Messaging;
+using Demo.Model;
 
 namespace Demo.Receiver.Context
 {

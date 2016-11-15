@@ -1,6 +1,6 @@
 ﻿using System;
+using Demo.Model;
 using MassTransit;
-using Pangea.Messaging;
 
 namespace Demo.Receiver
 {

@@ -90,9 +90,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pangea.Messaging\Pangea.Messaging.csproj">
+    <ProjectReference Include="..\Demo.Model\Demo.Model.csproj">
       <Project>{68b4fe5b-a61d-4671-81f9-811b0ebc488f}</Project>
-      <Name>Pangea.Messaging</Name>
+      <Name>Demo.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

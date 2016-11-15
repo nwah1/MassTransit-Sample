@@ -1,4 +1,4 @@
-namespace Demo.Web.Areas.HelpPage
+namespace Demo.Web.Areas.HelpPage.SampleGeneration
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

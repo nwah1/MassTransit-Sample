@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Pangea.Messaging
+namespace Demo.Model
 {
     public interface ILoadData
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Demo.Model;
 using Demo.Receiver.Context;
 using MassTransit;
-using Pangea.Messaging;
 
 namespace Demo.Receiver
 {

@@ -303,9 +303,9 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Pangea.Messaging\Pangea.Messaging.csproj">
-      <Project>{68B4FE5B-A61D-4671-81F9-811B0EBC488F}</Project>
-      <Name>Pangea.Messaging</Name>
+    <ProjectReference Include="..\Demo.Model\Demo.Model.csproj">
+      <Project>{68b4fe5b-a61d-4671-81f9-811b0ebc488f}</Project>
+      <Name>Demo.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
