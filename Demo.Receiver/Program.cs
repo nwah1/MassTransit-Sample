@@ -1,15 +1,36 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using MassTransit;
+using Pangea.Messaging;
 
 namespace Demo.Receiver
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            RunMassTransitReceiverWithRabbit();
+        }
+
+        private static void RunMassTransitReceiverWithRabbit()
+        {
+            var rabbitBusControl = Bus.Factory.CreateUsingRabbitMq(rabbit =>
+            {
+                var rabbitMqHost = rabbit.Host(new Uri(Consts.RabbitMqAddress), settings =>
+                {
+                    settings.Username(Consts.User);
+                    settings.Password(Consts.Pass);
+                });
+
+                rabbit.ReceiveEndpoint(rabbitMqHost, Consts.RabbitMqQueue, conf =>
+                {
+                    conf.Consumer<RegisterCustomerConsumer>();
+                });
+            });
+
+            rabbitBusControl.Start();
+            Console.ReadKey();
+
+            rabbitBusControl.Stop();
         }
     }
 }
