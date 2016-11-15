@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{D0399202-85D3-478E-95E4-E7820CCBDB52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Publisher", "Demo\Demo.Publisher.csproj", "{D0399202-85D3-478E-95E4-E7820CCBDB52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Receiver", "Demo.Receiver\Demo.Receiver.csproj", "{0428F926-0841-42A8-9A40-4512B2D93A44}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangea.Messaging", "Pangea.Messaging\Pangea.Messaging.csproj", "{68B4FE5B-A61D-4671-81F9-811B0EBC488F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{D0399202-85D3-478E-95E4-E7820CCBDB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0399202-85D3-478E-95E4-E7820CCBDB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0399202-85D3-478E-95E4-E7820CCBDB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0428F926-0841-42A8-9A40-4512B2D93A44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0428F926-0841-42A8-9A40-4512B2D93A44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0428F926-0841-42A8-9A40-4512B2D93A44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0428F926-0841-42A8-9A40-4512B2D93A44}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68B4FE5B-A61D-4671-81F9-811B0EBC488F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68B4FE5B-A61D-4671-81F9-811B0EBC488F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68B4FE5B-A61D-4671-81F9-811B0EBC488F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68B4FE5B-A61D-4671-81F9-811B0EBC488F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
