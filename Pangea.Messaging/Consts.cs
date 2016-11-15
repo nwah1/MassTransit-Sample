@@ -6,5 +6,6 @@
         public const string RabbitMqQueue = "load.data";
         public const string User = "guest";
         public const string Pass = "guest";
+        public const string Source = @"http://api.github.com/orgs/gopangea/repos";
     }
 }

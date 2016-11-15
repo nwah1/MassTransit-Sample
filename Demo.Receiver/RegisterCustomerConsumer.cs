@@ -1,20 +1,40 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
+using Demo.Receiver.Context;
 using MassTransit;
 using Pangea.Messaging;
 
 namespace Demo.Receiver
 {
-    public class RegisterCustomerConsumer : IConsumer<IRegisterCustomer>
+    public class RegisterCustomerConsumer : IConsumer<ILoadData>
     {
-        public Task Consume(ConsumeContext<IRegisterCustomer> context)
+        public Task Consume(ConsumeContext<ILoadData> context)
         {
-            IRegisterCustomer newCustomer = context.Message;
-            Console.WriteLine("A new customer has signed up, it's time to register it. Details: ");
-            Console.WriteLine(newCustomer.Address);
-            Console.WriteLine(newCustomer.Name);
-            Console.WriteLine(newCustomer.Id);
-            Console.WriteLine(newCustomer.Preferred);
+            ILoadData newCustomer = context.Message;
+
+            using (var repoContext = new RepoContext())
+            {
+                foreach (var repo in context.Message.Repos)
+                {
+                    var original = repoContext.Repos.FirstOrDefault(r => r.full_name == repo.full_name);
+
+                    if (original == null)
+                        repoContext.Repos.Add(repo);
+                    else
+                    {
+                        repo.id = original.id;
+                        repoContext.Entry(original).CurrentValues.SetValues(repo);
+                    }
+                }
+
+                repoContext.SaveChanges();
+            }
+
+            Console.WriteLine("Repos have been updated with the latest data. Details: ");
+            Console.WriteLine("ID: " + newCustomer.Id);
+            Console.WriteLine("Count: " + newCustomer.Repos.Count);
+
             return Task.FromResult(context.Message);
         }
     }

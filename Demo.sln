@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Receiver", "Demo.Recei
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pangea.Messaging", "Pangea.Messaging\Pangea.Messaging.csproj", "{68B4FE5B-A61D-4671-81F9-811B0EBC488F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Publisher", "Demo.Publisher\Demo.Publisher.csproj", "{D0399202-85D3-478E-95E4-E7820CCBDB52}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Web", "Demo.Web\Demo.Web.csproj", "{5AA244E3-F382-41F3-845F-5F3A2C10E929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{68B4FE5B-A61D-4671-81F9-811B0EBC488F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B4FE5B-A61D-4671-81F9-811B0EBC488F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B4FE5B-A61D-4671-81F9-811B0EBC488F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0399202-85D3-478E-95E4-E7820CCBDB52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0399202-85D3-478E-95E4-E7820CCBDB52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0399202-85D3-478E-95E4-E7820CCBDB52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0399202-85D3-478E-95E4-E7820CCBDB52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AA244E3-F382-41F3-845F-5F3A2C10E929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AA244E3-F382-41F3-845F-5F3A2C10E929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AA244E3-F382-41F3-845F-5F3A2C10E929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AA244E3-F382-41F3-845F-5F3A2C10E929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
