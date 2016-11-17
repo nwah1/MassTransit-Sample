@@ -7,11 +7,11 @@ using MassTransit;
 
 namespace Demo.Receiver
 {
-    public class LoadDataConsumer : IConsumer<ILoadData>
+    public class SaveDataConsumer : IConsumer<SaveData>
     {
-        public Task Consume(ConsumeContext<ILoadData> context)
+        public Task Consume(ConsumeContext<SaveData> context)
         {
-            ILoadData newCustomer = context.Message;
+            SaveData newCustomer = context.Message;
 
             using (var repoContext = new RepoContext())
             {
@@ -31,8 +31,7 @@ namespace Demo.Receiver
                 repoContext.SaveChanges();
             }
 
-            Console.WriteLine("Repos have been updated with the latest data. Details: ");
-            Console.WriteLine("ID: " + newCustomer.Id);
+            Console.WriteLine("Repos have been saved with the latest data. Details: ");
             Console.WriteLine("Count: " + newCustomer.Repos.Count);
 
             return Task.FromResult(context.Message);
