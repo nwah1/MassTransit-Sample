@@ -8,11 +8,6 @@ namespace Demo.Receiver
     {
         private static void Main(string[] args)
         {
-            RunMassTransitReceiverWithRabbit();
-        }
-
-        private static void RunMassTransitReceiverWithRabbit()
-        {
             var rabbitBusControl = Bus.Factory.CreateUsingRabbitMq(rabbit =>
             {
                 var rabbitMqHost = rabbit.Host(new Uri(Consts.RabbitMqAddress), settings =>
@@ -23,7 +18,7 @@ namespace Demo.Receiver
 
                 rabbit.ReceiveEndpoint(rabbitMqHost, Consts.RabbitMqQueue, conf =>
                 {
-                    conf.Consumer<RegisterCustomerConsumer>();
+                    conf.Consumer<LoadDataConsumer>();
                 });
             });
 

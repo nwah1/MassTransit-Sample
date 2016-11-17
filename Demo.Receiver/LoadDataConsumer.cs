@@ -7,7 +7,7 @@ using MassTransit;
 
 namespace Demo.Receiver
 {
-    public class RegisterCustomerConsumer : IConsumer<ILoadData>
+    public class LoadDataConsumer : IConsumer<ILoadData>
     {
         public Task Consume(ConsumeContext<ILoadData> context)
         {
