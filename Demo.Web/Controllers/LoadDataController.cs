@@ -14,6 +14,8 @@ namespace Demo.Web.Controllers
     [AllowAnonymous]
     public class LoadDataController : ApiController
     {
+        private IBusControl _busControl = null;
+
         // GET api/values
         public async Task Get()
         {
@@ -29,22 +31,23 @@ namespace Demo.Web.Controllers
 
             var rabbitMqRootUri = new Uri(Consts.RabbitMqAddress);
 
-            var control = Bus.Factory.CreateUsingRabbitMq(rabbit =>
+            if (_busControl == null)
             {
-                rabbit.Host(rabbitMqRootUri, settings =>
+                _busControl = Bus.Factory.CreateUsingRabbitMq(rabbit =>
                 {
-                    settings.Username(Consts.User);
-                    settings.Password(Consts.Pass);
+                    rabbit.Host(rabbitMqRootUri, settings =>
+                    {
+                        settings.Username(Consts.User);
+                        settings.Password(Consts.Pass);
+                    });
                 });
-            });
+            }
 
-            await control.Publish<ILoadData>(new
+            await _busControl.Publish<ILoadData>(new
             {
                 Id = Guid.NewGuid(),
                 Repos = repos
             });
-
-            Console.ReadKey();
         }
 
 
