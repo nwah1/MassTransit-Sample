@@ -16,7 +16,7 @@ namespace Demo.Web.Controllers
     {
         private IBusControl _busControl = null;
 
-        // GET api/values
+        // GET api/LoadData
         public async Task Get()
         {
             var json = GetJson(Consts.Source);
