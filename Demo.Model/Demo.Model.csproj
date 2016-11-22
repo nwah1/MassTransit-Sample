@@ -43,7 +43,8 @@
   <ItemGroup>
     <Compile Include="Consts.cs" />
     <Compile Include="ILoadData.cs" />
-    <Compile Include="ISaveData.cs" />
+    <Compile Include="ListRepos.cs" />
+    <Compile Include="SaveData.cs" />
     <Compile Include="Owner.cs" />
     <Compile Include="Permissions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -224,6 +224,7 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RepositoriesController.cs" />
     <Compile Include="Controllers\LoadDataController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -318,6 +319,10 @@
     <ProjectReference Include="..\Demo.Model\Demo.Model.csproj">
       <Project>{68b4fe5b-a61d-4671-81f9-811b0ebc488f}</Project>
       <Name>Demo.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Demo.Receiver\Demo.Receiver.csproj">
+      <Project>{0428F926-0841-42A8-9A40-4512B2D93A44}</Project>
+      <Name>Demo.Receiver</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

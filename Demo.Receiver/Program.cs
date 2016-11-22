@@ -16,9 +16,14 @@ namespace Demo.Receiver
                     settings.Password(Consts.Pass);
                 });
 
-                rabbit.ReceiveEndpoint(rabbitMqHost, Consts.SagaQueue, conf =>
+                rabbit.ReceiveEndpoint(rabbitMqHost, Consts.LoadDataQueue, conf =>
                 {
                     conf.Consumer<SaveDataConsumer>();
+                });
+
+                rabbit.ReceiveEndpoint(rabbitMqHost, Consts.ListReposQueue, conf =>
+                {
+                    conf.Consumer<ListReposConsumer>();
                 });
             });
 

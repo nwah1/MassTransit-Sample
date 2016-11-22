@@ -43,7 +43,7 @@ namespace Demo.Saga
                     h.Password(Consts.Pass);
                 });
 
-                x.ReceiveEndpoint(host, Consts.SagaQueue, e =>
+                x.ReceiveEndpoint(host, Consts.LoadDataQueue, e =>
                 {
                     e.PrefetchCount = 8;
                     e.StateMachineSaga(_machine, _repository);

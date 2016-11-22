@@ -11,7 +11,7 @@ namespace Demo.Receiver
     {
         public Task Consume(ConsumeContext<SaveData> context)
         {
-            SaveData newCustomer = context.Message;
+            SaveData dataToSave = context.Message;
 
             using (var repoContext = new RepoContext())
             {
@@ -32,7 +32,7 @@ namespace Demo.Receiver
             }
 
             Console.WriteLine("Repos have been saved with the latest data. Details: ");
-            Console.WriteLine("Count: " + newCustomer.Repos.Count);
+            Console.WriteLine("Count: " + dataToSave.Repos.Count);
 
             return Task.FromResult(context.Message);
         }
