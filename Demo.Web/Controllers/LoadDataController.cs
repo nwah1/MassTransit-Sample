@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using Demo.Model;
-using MassTransit;
 using Newtonsoft.Json;
 
 namespace Demo.Web.Controllers
@@ -14,8 +12,6 @@ namespace Demo.Web.Controllers
     [AllowAnonymous]
     public class LoadDataController : ApiController
     {
-        private IBusControl _busControl = null;
-
         // GET api/LoadData
         public async Task Get()
         {
@@ -30,20 +26,8 @@ namespace Demo.Web.Controllers
             }
 
             var rabbitMqRootUri = new Uri(Consts.RabbitMqAddress);
-
-            if (_busControl == null)
-            {
-                _busControl = Bus.Factory.CreateUsingRabbitMq(rabbit =>
-                {
-                    rabbit.Host(rabbitMqRootUri, settings =>
-                    {
-                        settings.Username(Consts.User);
-                        settings.Password(Consts.Pass);
-                    });
-                });
-            }
-
-            await _busControl.Publish<ILoadData>(new
+            
+            await WebApiApplication.BusControl.Publish<ILoadData>(new
             {
                 Id = Guid.NewGuid(),
                 Repos = repos
