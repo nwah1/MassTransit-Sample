@@ -1,5 +1,6 @@
 ﻿using Demo.Model;
 using MassTransit;
+using MassTransit.Util;
 using System;
 using System.Web.Http;
 using System.Web.Mvc;
@@ -33,6 +34,8 @@ namespace Demo.Web
                     });
                 });
             }
+
+            TaskUtil.Await(() => BusControl.StartAsync());
         }
     }
 }

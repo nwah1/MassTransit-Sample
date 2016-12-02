@@ -1,6 +1,7 @@
 ﻿using System;
 using Demo.Model;
 using MassTransit;
+using MassTransit.Util;
 
 namespace Demo.Receiver
 {
@@ -27,7 +28,8 @@ namespace Demo.Receiver
                 });
             });
 
-            rabbitBusControl.Start();
+            TaskUtil.Await(() => rabbitBusControl.StartAsync());            
+
             Console.ReadKey();
 
             rabbitBusControl.Stop();

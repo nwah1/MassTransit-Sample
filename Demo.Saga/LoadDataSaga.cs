@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using Automatonymous;
 using Demo.Model;
 
@@ -17,11 +16,10 @@ namespace Demo.Saga
                 When(DataLoaded)
                     .Then(context =>
                     {
-                        context.Instance.Id = Guid.NewGuid().ToString();
                         context.Instance.TimeOfRequest = DateTime.Now;
+                        context.Publish(new SaveData { Repos = context.Data.Repos });
                     })
                     .ThenAsync(context => Console.Out.WriteLineAsync($"Data Loading..."))
-                    .Publish(context => new SaveData { Repos = context.Data.Repos })
                     .Finalize());
 
             SetCompletedWhenFinalized();

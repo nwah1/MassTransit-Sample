@@ -3,11 +3,11 @@ using Automatonymous;
 using Demo.Model;
 using MassTransit;
 using MassTransit.EntityFrameworkIntegration;
-using MassTransit.EntityFrameworkIntegration.Saga;
 using MassTransit.RabbitMqTransport;
 using MassTransit.Saga;
 using Topshelf;
 using Topshelf.Logging;
+using MassTransit.Util;
 
 namespace Demo.Saga
 {
@@ -16,7 +16,6 @@ namespace Demo.Saga
         readonly LogWriter _log = HostLogger.Get<SagaService>();
 
         IBusControl _busControl;
-        BusHandle _busHandle;
         LoadDataSaga _machine;
         ISagaRepository<LoadData> _repository;
 
@@ -52,8 +51,8 @@ namespace Demo.Saga
             });
 
             _log.Info("Starting bus...");
-
-            _busHandle = _busControl.Start();
+            
+            TaskUtil.Await(() => _busControl.StartAsync());
 
             return true;
         }
@@ -62,8 +61,8 @@ namespace Demo.Saga
         {
             _log.Info("Stopping bus...");
 
-            if (_busHandle != null)
-                _busHandle.Stop();
+            if (_busControl != null)
+                _busControl.Stop();
 
             return true;
         }
