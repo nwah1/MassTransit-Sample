@@ -19,8 +19,7 @@ namespace Demo.Saga
                         context.Instance.TimeOfRequest = DateTime.Now;
                         context.Publish(new SaveData { Repos = context.Data.Repos });
                     })
-                    .ThenAsync(context => Console.Out.WriteLineAsync($"Data Loading..."))
-                    .Finalize());
+                    .ThenAsync(context => Console.Out.WriteLineAsync($"Data Loading...")));
 
             SetCompletedWhenFinalized();
         }
